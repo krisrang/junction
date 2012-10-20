@@ -13,4 +13,18 @@ capybara-*.html
 /spec/tmp/*
 **.orig
 rerun.txt
-pickle-email-*.html
+
+# Ignore local settings
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+
+public/uploads
+public/assets
+public/avatars
+
+/.powenv
+
+/coverage
+.tddium*
+.DS_Store

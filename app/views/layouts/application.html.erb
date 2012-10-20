@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <title>TODO: title</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <%= yield %>
+  
+  <%= javascript_include_tag "application" %>
+  <script>
+      var _gaq=[['_setAccount','<%= ENV['GAID'] %>'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+</body>
+</html>

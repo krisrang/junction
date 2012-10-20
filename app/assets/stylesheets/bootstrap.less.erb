@@ -1,0 +1,112 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+// Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not
+//       have the proper paths. So for now we use the absolute path.
+@fontAwesomeEotPath: '/assets/fontawesome-webfont.eot';
+@fontAwesomeWoffPath: '/assets/fontawesome-webfont.woff';
+@fontAwesomeTtfPath: '/assets/fontawesome-webfont.ttf';
+@fontAwesomeSvgPath: '/assets/fontawesome-webfont.svg';
+
+.icon-white,
+.nav > .active > a > [class^="icon-"],
+.nav > .active > a > [class*=" icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:hover > [class*=" icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-menu > .active > a > [class*=" icon-"] {
+  background-image: none;
+}
+
+<% unless Rails.env.test? %>
+@import "fontawesome";
+<% end %>
+
+@bodyBackground:    #F5F4F2;
+@inputBorderRadius: 2px;
+
+.btn,
+.btn-large,
+.alert,
+.pagination ul {
+  .border-radius(2px)
+}
+
+.well {
+  background-color: #FFF;
+  //border: none;
+  .border-radius(0px);
+  .box-shadow(0 3px 5px rgba(0,0,0,.1));
+
+  &.row {
+    padding: 20px 5px;
+  }
+}
+
+.form-actions {
+  background: none;
+}
+
+.form-horizontal {
+  .control-label {
+    width: 160px;
+  }
+
+  .controls {
+    margin-left: 170px;
+  }
+}
+
+.dropdown-menu {
+  .border-radius(2px);
+}
+
+.dropdown-submenu > .dropdown-menu {
+  -webkit-border-radius: 0 2px 2px 2px;
+     -moz-border-radius: 0 2px 2px 2px;
+          border-radius: 0 2px 2px 2px;
+}
+
+.dropdown-menu.autotype {
+  position: fixed;
+  top: auto;
+}
+
+@media (max-width: 480px) {
+  .dropdown-menu.autotype {
+    display: none !important;
+  }
+  
+  .form-horizontal .controls {
+    margin-left: 0;
+  }
+
+  .form-horizontal .control-group.boolean {
+    > label {
+      display: inline;
+    }
+
+    > div.controls {
+      display: inline;
+      margin-left: 5px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .pagination li.page {
+    display: none;
+
+    &.active {
+      display: inline;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .pagination a,
+  .pagination span {
+    padding: 0 7px;
+  }
+}

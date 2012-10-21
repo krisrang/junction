@@ -1,23 +1,85 @@
 <!DOCTYPE html>
 <html class="no-js">
 <head>
-  <title>TODO: title</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="<%= Settings.site.description %>" />
+  <meta name="keywords" content="<%= Settings.site.keywords %>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="openid.server" href="http://www.myopenid.com/server" />
+  <link rel="openid.delegate" href="http://dvsbstd.myopenid.com/" />
+  <link rel="openid2.provider" href="http://www.myopenid.com/server" />
+  <link rel="openid2.local_id" href="http://dvsbstd.myopenid.com/" />
+  <meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=dvsbstd.myopenid.com" />
+  <title><%= Settings.site.title %></title>
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <% if Settings.site.rss_enabled %>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="<%= Settings.tumblr.rss %>" />
+  <% end %>
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+  <body>
+  <header class="main-header">
+    <hgroup>
+      <div class="picture">
+        <a href="/" rel="home"></a>
+      </div>
+      <h1>Kristjan Rang</h1>
+      <h2>Developer. Gamer.</h2>
+    </hgroup>
+    <nav>
+      <ul class="main-nav">
+        <li><a href="/" id="home-link">Home</a></li>
+        <li><%= link_to "Projects", projects_path, id: "projects-link", "data-toggle" => "modal", "data-target" => "#projects-profile" %></li>
+        <li><a href="http://github.com/krisrang" id="github-link" data-toggle="modal" data-target="#github-profile">Github</a></li>
+        <li><a href="http://lastfm.com/user/noin" id="lastfm-link" data-toggle="modal" data-target="#lastfm-profile">Last.fm</a></li>
+        <li><a href="http://twitter.com/#!/kristjanrang" id="twitter-link" data-toggle="modal" data-target="#twitter-profile">Twitter</a></li>
+        <li><a href="http://instagr.am/p/Lau1VrEPbt" id="instagram-link" data-toggle="modal" data-target="#instagram-profile">Instagram</a></li>
+        <li><a href="https://foursquare.com/user/8786308" id="foursquare-link" data-toggle="modal" data-target="#foursquare-profile">Foursquare</a></li>
+        <li><a href="mailto:mail@kristjanrang.eu?subject=Hello" id="contact-link" data-target="#contact-profile">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="fork-me">
+      <a href="https://github.com/krisrang/junction">Junction</a>, based on <a href="https://github.com/rigoneri/syte">Syte</a>
+    </div>
+  </header>
+
+  <%= render 'modals/projects' %>
+  <%= render 'modals/twitter' %>
+  <%= render 'modals/github' %>
+  <%= render 'modals/lastfm' %>
+  <%= render 'modals/instagram' %>
+  <%= render 'modals/foursquare' %>
+  <%= render 'modals/contact' %>
+
   <%= yield %>
-  
+
+  <div class="mobile-nav">
+    <span class="nav-btn" id="mobile-nav-btn">
+      <span class="nav-btn-bar"></span>
+      <span class="nav-btn-bar"></span>
+      <span class="nav-btn-bar"></span>
+    </span>
+    <h3><a href="/">www.kristjanrang.eu</a></h3>
+  </div>
+
   <%= javascript_include_tag "application" %>
   <script>
-      var _gaq=[['_setAccount','<%= ENV['GAID'] %>'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
+    var _gaq=[['_setAccount','<%= ENV['GAID'] %>'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+
+  <% if Settings.disqus.enabled %>
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = 'http://<%= Settings.disqus.shortname %>.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  <% end %>
   </script>
 </body>
 </html>
+

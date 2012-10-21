@@ -1,0 +1,15 @@
+<footer>
+  <% unless post.tags.blank? %>
+  <h4>Tags</h4>
+  <ul class="tags">
+    <% post.tags.each do |tag| %>
+      <li><%= link_to tag, tag_path(tag) %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  <% if Settings.disqus.enabled %>
+  <div id="disqus_thread" class="disqus-thread">
+    <%= link_to "", post_path(post.id) + "#disqus_thread", class: "comments" %>
+  </div>
+  <% end %>
+</footer>

@@ -148,7 +148,7 @@ GEM
     json (1.7.5)
     less (2.2.2)
       commonjs (~> 0.2.6)
-    less-rails (2.2.3)
+    less-rails (2.2.4)
       actionpack (>= 3.1)
       less (~> 2.2.0)
     libv8 (3.3.10.4)
@@ -180,7 +180,7 @@ GEM
     newrelic_moped (0.0.3)
     newrelic_rpm (3.5.0)
     nokogiri (1.5.5)
-    octokit (1.15.1)
+    octokit (1.18.0)
       addressable (~> 2.2)
       faraday (~> 0.8)
       faraday_middleware (~> 0.8)
@@ -323,6 +323,7 @@ DEPENDENCIES
   oj
   poltergeist
   puma
+  rack-cache
   rails (~> 3.2.8)
   rails_config
   rb-fsevent

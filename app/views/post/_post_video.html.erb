@@ -1,0 +1,13 @@
+<article id="<%= post.id %>">
+  <hgroup>
+    <h2><%= link_to "Video", post_path(post.id) %></h2>
+    <h3><a href="#<%= post.id %>"><%= format_tumblr_date post.date %></a></h3>
+  </hgroup>
+  <p>
+    <a href="<%= post.permalink_url %>" class="no-border"><img src="<%= post.thumbnail_url %>" /></a>
+  </p>
+  <% if post.caption %>
+  <p><%= raw post.caption %></p>
+  <% end %>
+  <%= render 'post_bottom', post: post %>
+</article>

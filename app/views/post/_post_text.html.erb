@@ -1,0 +1,8 @@
+<article id="<%= post.id %>">
+  <hgroup>
+    <h2><%= link_to post.title, post_path(post.id) %>&nbsp</h2>
+    <h3><a href="#<%= post.id %>"><%= format_tumblr_date post.date %></a></h3>
+  </hgroup>
+  <%= raw post.body %>
+  <%= render 'post_bottom', post: post %>
+</article>

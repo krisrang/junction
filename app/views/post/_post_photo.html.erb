@@ -1,0 +1,16 @@
+<article id="<%= post.id %>">
+  <hgroup>
+    <h2><%= link_to "Photo", post_path(post.id) %></h2>
+    <h3><a href="#<%= post.id %>"><%= format_tumblr_date post.date %></a></h3>
+  </hgroup>
+  <% post.photos.each do |photo| %>
+    <p><img src="<%= photo.original_size.url %>" /></p>
+    <% if photo.caption %>
+    <p><%= raw photo.caption %></p>
+    <% end %>
+  <% end %>
+  <% if post.caption %>
+  <p><%= raw post.caption %></p>
+  <% end %>
+  <%= render 'post_bottom', post: post %>
+</article>

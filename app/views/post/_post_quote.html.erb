@@ -1,0 +1,13 @@
+<article id="<%= post.id %>">
+  <hgroup>
+    <h2><%= link_to "Quote", post_path(post.id) %></h2>
+    <h3><a href="#<%= post.id %>"><%= format_tumblr_date post.date %></a></h3>
+  </hgroup>
+  <blockquote>
+    <%= raw post.text %>
+  </blockquote>
+  <% if post.source %>
+  <p><%= raw post.source %></p>
+  <% end %>
+  <%= render 'post_bottom', post: post %>
+</article>

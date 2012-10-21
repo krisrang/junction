@@ -24,6 +24,7 @@ gem 'twitter'
 gem 'httparty'
 gem 'octokit'
 gem 'foursquare2'
+gem 'rack-cache'
 
 group :assets do
   gem 'execjs'

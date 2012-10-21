@@ -3,6 +3,7 @@ assethost:
 tumblr:
   blog: kriszor.tumblr.com
   key: <%= ENV['TUMBLR'] %>
+  rss: http://kriszor.tumblr.com/rss
 twitter:
   access_key: <%= ENV['TWITTER_ACCESS_KEY'] %>
   access_secret: <%= ENV['TWITTER_ACCESS_SECRET'] %>
@@ -23,3 +24,11 @@ instagram:
   access_id: <%= ENV['INSTAGRAM_ACCESS_ID'] %>
 foursquare:
   access_token: <%= ENV['FSQ_ACCESS_TOKEN'] %>
+site:
+  description: Personal site of Kristjan Rang. Development. Gaming. Stuff.
+  title: Kristjan Rang
+  keywords: Kristjan Rang, krisrang, kriszor, kreu, pawdrop
+  rss_enabled: true
+disqus:
+  enabled: true
+  shortname: kreumain

@@ -64,7 +64,7 @@ Junction::Application.configure do
   config.action_dispatch.rack_cache = {
                           :metastore    => Dalli::Client.new,
                           :entitystore  => 'file:tmp/cache/rack/body',
-                          :allow_reload => true } # very changed
+                          :allow_reload => false }
 
-  config.static_cache_control = "public, max-age=2592000" # changed
+  config.static_cache_control = "public, max-age=2592000" 
 end

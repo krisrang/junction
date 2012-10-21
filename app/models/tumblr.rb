@@ -17,13 +17,10 @@ class Tumblr
   private 
 
   def fetch(type, params=nil)
-    hash = Rails.cache.fetch("tumblr-#{type}", expires_in: 10.minutes) do
-      r = query(params)
-
-      r.response.code.to_s == "200" && r.parsed_response.is_a?(Hash) ?
-        r.parsed_response["response"] :
-        {posts: []}
-    end
+    r = query(params)
+    hash = r.response.code.to_s == "200" && r.parsed_response.is_a?(Hash) ?
+      r.parsed_response["response"] :
+      {posts: []}
     
     Hashie::Mash.new(hash).posts
   end

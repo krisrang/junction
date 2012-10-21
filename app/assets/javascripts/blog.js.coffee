@@ -54,13 +54,6 @@ setupBlogHeaderScroll = ->
   $window.scroll(processScroll).trigger("scroll")
 
 $ ->
-  # Temporary fix for bootstrap 2.1.0
-  $('body')
-    .off('click.dropdown touchstart.dropdown.data-api', '.dropdown')
-    .on('click.dropdown touchstart.dropdown.data-api', '.dropdown form', (e) -> e.stopPropagation())
-  $('[rel=tooltip]').tooltip()
-  $('.timeago').timeago()
-
   $('#mobile-nav-btn').click ->
      $('.main-section').toggleClass 'nav-opened'
 

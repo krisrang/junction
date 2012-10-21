@@ -31,8 +31,12 @@
     </hgroup>
     <nav>
       <ul class="main-nav">
-        <li><a href="/" id="home-link">Home</a></li>
-        <li><%= link_to "Projects", projects_path, id: "projects-link", "data-toggle" => "modal", "data-target" => "#projects-profile" %></li>
+        <li class="<%= current_page?(root_path) ? 'sel' : ''  %>">
+          <a href="/" id="home-link">Blog</a>
+        </li>
+        <li class="<%= current_page?(projects_path) ? 'sel' : ''  %>">
+          <%= link_to "Projects", projects_path, id: "projects-link", "data-toggle" => "modal", "data-target" => "#projects-profile" %>
+        </li>
         <li><a href="http://github.com/krisrang" id="github-link" data-toggle="modal" data-target="#github-profile">Github</a></li>
         <li><a href="http://lastfm.com/user/noin" id="lastfm-link" data-toggle="modal" data-target="#lastfm-profile">Last.fm</a></li>
         <li><a href="http://twitter.com/#!/kristjanrang" id="twitter-link" data-toggle="modal" data-target="#twitter-profile">Twitter</a></li>

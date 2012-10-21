@@ -1,9 +1,6 @@
 #= require jquery
 #= require jquery_ujs
-#= require twitter/bootstrap
-#= require ./lib/modernizr
-#= require ./lib/shims
-#= require ./lib/timeago
+#= require twitter/bootstrap/bootstrap-modal
 #= require_self
 
 # Avoid `console` errors in browsers that lack a console

@@ -1,2 +1,2 @@
 //= require common
-//= require junction
+//= require blog

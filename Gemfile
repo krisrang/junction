@@ -25,6 +25,7 @@ gem 'httparty'
 gem 'octokit'
 gem 'foursquare2'
 gem 'rack-cache'
+gem 'turbo-sprockets-rails3'
 
 group :assets do
   gem 'execjs'

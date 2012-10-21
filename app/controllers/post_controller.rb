@@ -1,17 +1,19 @@
 class PostController < ApplicationController
-  respond_to :json, :html
-
   def index
-    @posts = Tumblr.query.posts
-    respond_with @posts
-  end
-
-  def projects
+    @posts = Tumblr.new.posts
   end
 
   def show
+    @single = true
+    @posts = Tumblr.new.post(params[:id])
+    render action: :index
   end
 
   def tag
+    @posts = Tumblr.new.tag(params[:tag])
+    render action: :index
+  end
+
+  def projects
   end
 end

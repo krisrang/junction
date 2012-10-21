@@ -3,3 +3,14 @@
     <%= render "post_#{post.type}", post: post %>
   <% end %>
 </section>
+
+<% if Settings.disqus.enabled %>
+<script>
+  var type = '<%= @single ? 'embed' : 'count' %>';
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://<%= Settings.disqus.shortname %>.disqus.com/' + type + '.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+</script>
+<% end %>

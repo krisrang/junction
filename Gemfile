@@ -19,6 +19,11 @@ gem 'rails_config'
 gem 'airbrake'
 gem 'newrelic_rpm'
 gem 'newrelic_moped'
+gem 'oj'
+gem 'twitter'
+gem 'httparty'
+gem 'octokit'
+gem 'foursquare2'
 
 group :assets do
   gem 'execjs'

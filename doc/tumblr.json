@@ -1,0 +1,55 @@
+{ "meta":
+  {
+    "status":200,
+    "msg":"OK"
+  },
+  "response":
+  {
+    "blog":
+      {"title":"Kristjan Rang",
+        "posts":2,
+        "name":"kriszor",
+        "url":"http:\/\/kriszor.tumblr.com\/",
+        "updated":1350750269,
+        "description":"Development. Gaming. Stuff.",
+        "ask":false,
+        "likes":0
+      },
+    "posts":
+      [
+        {"blog_name":"kriszor",
+        "id":33964101499,
+        "post_url":"http:\/\/kriszor.tumblr.com\/post\/33964101499\/my-primary-ssd-failed-on-tuesday-with-my-main",
+        "slug":"my-primary-ssd-failed-on-tuesday-with-my-main",
+        "type":"text",
+        "date":"2012-10-20 16:24:00 GMT",
+        "timestamp":1350750240,
+        "state":"published",
+        "format":"html",
+        "reblog_key":"blergh",
+        "tags":[],
+        "highlighted":[],
+        "note_count":0,
+        "title":"",
+        "body":"<p>My primary SSD failed on Tuesday with my main Windows install on it but I suppose it didn&#8217;t come as a huge surprise to me. It was a Corsair Force 60 - pretty early gen SSD - so I&#8217;m glad it survived as long as it did. This did however give me a reason to buy one of the parts for my upcoming PC build early.<\/p>\n<p>I decided to get the <a href=\"http:\/\/www.hardocp.com\/article\/2012\/09\/11\/corsair_neutron_series_gtx_240gb_ssd_review\/\">Corsair Neutron GTX 120GB<\/a>\u00a0and put Windows on it temporarily as my plan was to get the Neutron GTX for OS X and a <a href=\"http:\/\/www.anandtech.com\/show\/6328\/samsung-ssd-840-pro-256gb-review\">Samsung 840 Pro 256GB<\/a> for Windows.<\/p>\n<p>Needless to say running after running Windows on an HDD for 5 days, it feels very good to be back on an SSD and a top-end one at that. Cold boot to Windows in 4 seconds haha, yeah&#8230;<\/p>\n<p>For the curious here&#8217;s the build I&#8217;ll be assembling in the next 2.5 months:\u00a0<a href=\"http:\/\/pcpartpicker.com\/p\/kShd\"><a href=\"http:\/\/pcpartpicker.com\/p\/kShd\">http:\/\/pcpartpicker.com\/p\/kShd<\/a><\/a><\/p>"
+        },
+        {"blog_name":"kriszor",
+         "id":33962017334,
+         "post_url":"http:\/\/kriszor.tumblr.com\/post\/33962017334\/just-a-quick-powershell-script-i-slapped-together",
+         "slug":"just-a-quick-powershell-script-i-slapped-together",
+         "type":"text",
+         "date":"2012-08-20 15:48:12 GMT",
+         "timestamp":1345477692,
+         "state":"published",
+         "format":"html",
+         "reblog_key":"blergh",
+         "tags":[],
+         "highlighted":[],
+         "note_count":0,
+         "title":"",
+         "body":"<p>Just a quick powershell script I slapped together to get rid of those annoying Apple ._ files.<\/p>\n<pre class=\"prettyprint\"><span class=\"pln\">ls <\/span><span class=\"pun\">*<\/span><span class=\"pln\"> <\/span><span class=\"pun\">-<\/span><span class=\"typ\">Include<\/span><span class=\"pln\"> <\/span><span class=\"str\">\"._*\"<\/span><span class=\"pln\"> <\/span><span class=\"pun\">-<\/span><span class=\"typ\">Recurse<\/span><span class=\"pln\"> <\/span><span class=\"pun\">-<\/span><span class=\"typ\">Force<\/span><span class=\"pln\"> <\/span><span class=\"pun\">|<\/span><span class=\"pln\"> <\/span><span class=\"pun\">%{<\/span><span class=\"pln\"> attrib <\/span><span class=\"pun\">-<\/span><span class=\"pln\">S <\/span><span class=\"pun\">-<\/span><span class=\"pln\">H <\/span><span class=\"str\">\"$_\"<\/span><span class=\"pun\">;<\/span><span class=\"pln\"> rm <\/span><span class=\"str\">\"$_\"<\/span><span class=\"pln\"> <\/span><span class=\"pun\">}<\/span><\/pre>"
+        }
+      ],
+    "total_posts":2
+  }
+}

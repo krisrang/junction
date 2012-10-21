@@ -1,2 +1,25 @@
 assethost:
-  production: '//junction-assets.s3.amazonaws.com'
+  production: //junction-assets.s3.amazonaws.com
+tumblr:
+  blog: kriszor.tumblr.com
+  key: <%= ENV['TUMBLR'] %>
+twitter:
+  access_key: <%= ENV['TWITTER_ACCESS_KEY'] %>
+  access_secret: <%= ENV['TWITTER_ACCESS_SECRET'] %>
+  key: <%= ENV['TWITTER_KEY'] %>
+  secret: <%= ENV['TWITTER_SECRET'] %>
+github:
+  id: <%= ENV['GITHUB_ID'] %>
+  key: <%= ENV['GITHUB_ACCESS_TOKEN'] %>
+  password: <%= ENV['GITHUB_SECRET'] %>
+  username: krisrang
+lastfm:
+  key: <%= ENV['LAST_KEY'] %>
+  username: noin
+instagram:
+  id: <%= ENV['INSTAGRAM_ID'] %>
+  secret: <%= ENV['INSTAGRAM_SECRET'] %>
+  access_token: <%= ENV['INSTAGRAM_ACCESS_TOKEN'] %>
+  access_id: <%= ENV['INSTAGRAM_ACCESS_ID'] %>
+foursquare:
+  access_token: <%= ENV['FSQ_ACCESS_TOKEN'] %>

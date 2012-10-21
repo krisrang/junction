@@ -7,6 +7,7 @@ class Tumblr
   end
 
   def tag(tag)
+    tag = CGI.escape tag
     fetch "tag-#{tag}", "&tag=#{tag}"
   end
 

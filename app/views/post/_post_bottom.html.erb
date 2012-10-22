@@ -9,7 +9,7 @@
   <% end %>
   <% if Settings.disqus.enabled %>
   <div id="disqus_thread" class="disqus-thread">
-    <%= link_to "", post_path(post.id) + "#disqus_thread", class: "comments" %>
+    <%= link_to "", post_slug(post) + "#disqus_thread", class: "comments" %>
   </div>
   <% end %>
 </footer>

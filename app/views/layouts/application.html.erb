@@ -31,10 +31,10 @@
     </hgroup>
     <nav>
       <ul class="main-nav">
-        <li class="<%= current_page?(root_path) ? 'sel' : ''  %>">
+        <li <%= current_nav(root_path)  %>>
           <a href="/" id="home-link">Blog</a>
         </li>
-        <li class="<%= current_page?(projects_path) ? 'sel' : ''  %>">
+        <li <%= current_nav(projects_path)  %>>
           <%= link_to "Projects", projects_path, id: "projects-link", "data-toggle" => "modal", "data-target" => "#projects-profile" %>
         </li>
         <li><a href="http://github.com/krisrang" id="github-link" data-toggle="modal" data-target="#github-profile">Github</a></li>
@@ -46,7 +46,7 @@
       </ul>
     </nav>
     <div class="fork-me">
-      <a href="https://github.com/krisrang/junction">Junction</a>, based on <a href="https://github.com/rigoneri/syte">Syte</a>
+      <a href="https://github.com/krisrang/junction">Junction</a>, largely based on <a href="https://github.com/rigoneri/syte">Syte</a>
     </div>
   </header>
 

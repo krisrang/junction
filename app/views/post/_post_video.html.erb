@@ -1,6 +1,6 @@
 <article id="<%= post.id %>">
   <hgroup>
-    <h2><%= link_to "Video", post_path(post.id) %></h2>
+    <h2><%= link_to "Video", post_slug(post) %></h2>
     <h3><a href="#<%= post.id %>"><%= format_tumblr_date post.date %></a></h3>
   </hgroup>
   <p>

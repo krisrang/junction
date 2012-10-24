@@ -17,8 +17,9 @@
   <% end %>
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <%= stylesheet_link_tag "application", media: "all" %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application", async: true %>
 </head>
   <body>
   <header class="main-header">
@@ -60,8 +61,7 @@
   </div>
 
   <%= yield %>
-
-  <%= javascript_include_tag "application", async: true %>
+  
   <script async>
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '<%= ENV['GAID'] %>']);

@@ -4,8 +4,7 @@ module ApplicationHelper
   end
 
   def current_nav(page)
-    klass = current_page?(page) ? 'sel' : ''
-    "class=\"#{klass}\""
+    current_page?(page) ? 'sel' : ''
   end
 
   def post_slug(post)

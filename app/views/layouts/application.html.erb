@@ -31,32 +31,24 @@
     </hgroup>
     <nav>
       <ul class="main-nav">
-        <li <%= current_nav(root_path)  %>>
+        <li class="<%= current_nav(root_path) %>">
           <a href="/" id="home-link">Blog</a>
         </li>
-        <li <%= current_nav(projects_path)  %>>
-          <%= link_to "Projects", projects_path, id: "projects-link", "data-toggle" => "modal", "data-target" => "#projects-profile" %>
+        <li class="<%= current_nav(projects_path) %>">
+          <%= link_to "Projects", projects_path, id: "projects-link" %>
         </li>
-        <li><a href="http://github.com/krisrang" id="github-link" data-toggle="modal" data-target="#github-profile">Github</a></li>
-        <li><a href="http://lastfm.com/user/noin" id="lastfm-link" data-toggle="modal" data-target="#lastfm-profile">Last.fm</a></li>
-        <li><a href="http://twitter.com/#!/kristjanrang" id="twitter-link" data-toggle="modal" data-target="#twitter-profile">Twitter</a></li>
-        <li><a href="http://instagr.am/p/Lau1VrEPbt" id="instagram-link" data-toggle="modal" data-target="#instagram-profile">Instagram</a></li>
-        <li><a href="https://foursquare.com/user/8786308" id="foursquare-link" data-toggle="modal" data-target="#foursquare-profile">Foursquare</a></li>
-        <li><a href="mailto:mail@kristjanrang.eu?subject=Hello" id="contact-link" data-target="#contact-profile">Contact</a></li>
+        <li><a href="http://github.com/krisrang" id="github-link">Github</a></li>
+        <li><a href="http://lastfm.com/user/noin" id="lastfm-link">Last.fm</a></li>
+        <li><a href="http://twitter.com/#!/kristjanrang" id="twitter-link">Twitter</a></li>
+        <li><a href="http://instagr.am/p/Lau1VrEPbt" id="instagram-link">Instagram</a></li>
+        <li><a href="https://foursquare.com/user/8786308" id="foursquare-link">Foursquare</a></li>
+        <li><a href="mailto:mail@kristjanrang.eu?subject=Hello" id="contact-link">Contact</a></li>
       </ul>
     </nav>
     <div class="fork-me">
       <a href="https://github.com/krisrang/junction">Junction</a>, largely based on <a href="https://github.com/rigoneri/syte">Syte</a>
     </div>
   </header>
-
-  <%= render 'modals/projects' %>
-  <%= render 'modals/twitter' %>
-  <%= render 'modals/github' %>
-  <%= render 'modals/lastfm' %>
-  <%= render 'modals/instagram' %>
-  <%= render 'modals/foursquare' %>
-  <%= render 'modals/contact' %>
 
   <%= yield %>
 

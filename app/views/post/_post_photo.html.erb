@@ -8,11 +8,11 @@
   <% post.photos.each do |photo| %>
     <p><img src="<%= photo.original_size.url %>" /></p>
     <% if photo.caption %>
-    <p><%= raw photo.caption %></p>
+      <%= raw photo.caption %>
     <% end %>
   <% end %>
   <% if post.caption %>
-  <p><%= raw post.caption %></p>
+    <%= raw post.caption %>
   <% end %>
   <%= render 'post_bottom', post: post %>
 </article>

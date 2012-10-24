@@ -1,23 +1,23 @@
 class PostController < ApplicationController
-  after_filter :set_expires
-
   def index
     @posts = Tumblr.new.posts
+
+    fresh_when last_modified: @posts.max_by(&:date).date, public: true
   end
 
   def show
-    @single = true
-    @posts = Tumblr.new.post(params[:id])
+    @post = Tumblr.new.post(params[:id]).first
 
-    render action: :index
+    fresh_when last_modified: @post.date, public: true
   end
 
   def tag
     @posts = Tumblr.new.tag(params[:tag])
 
-    render action: :index
+    render :index if stale? last_modified: @posts.max_by(&:date).date, public: true
   end
 
   def projects
+    set_expires
   end
 end

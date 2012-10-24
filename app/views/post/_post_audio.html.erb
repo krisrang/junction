@@ -1,3 +1,4 @@
+<% @title =  "#{post.artist} - #{post.track_name}" %>
 <article id="<%= post.id %>">
   <hgroup>
     <h2><%= link_to "#{post.artist} - #{post.track_name}", post_slug(post) %></h2>

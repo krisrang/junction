@@ -10,7 +10,7 @@
   <link rel="openid2.provider" href="http://www.myopenid.com/server" />
   <link rel="openid2.local_id" href="http://dvsbstd.myopenid.com/" />
   <meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=dvsbstd.myopenid.com" />
-  <title><%= Settings.site.title %></title>
+  <title><%= yield(:title) %><%= Settings.site.title %></title>
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <% if Settings.site.rss_enabled %>
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<%= Settings.tumblr.rss %>" />
@@ -19,7 +19,6 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "application", media: "all" %>
-  <%= javascript_include_tag "application", async: true %>
 </head>
   <body>
   <header class="main-header">
@@ -27,7 +26,7 @@
       <div class="picture">
         <a href="/" rel="home"></a>
       </div>
-      <h1>Kristjan Rang</h1>
+      <h1><%= Settings.site.title %></h1>
       <h2>Developer. Gamer.</h2>
     </hgroup>
     <nav>
@@ -57,7 +56,7 @@
       <span class="nav-btn-bar"></span>
       <span class="nav-btn-bar"></span>
     </span>
-    <h3><a href="/">www.kristjanrang.eu</a></h3>
+    <h3><a href="/"><%= Settings.site.title %></a></h3>
   </div>
 
   <%= yield %>
@@ -73,6 +72,7 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
+   <%= javascript_include_tag "application" %>
 </body>
 </html>
 

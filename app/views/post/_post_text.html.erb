@@ -1,6 +1,8 @@
+<% @title = post.title || title_from_slug(post) %>
+
 <article id="<%= post.id %>">
   <hgroup>
-    <h2><%= link_to post.title, post_slug(post) %>&nbsp</h2>
+    <h2><%= link_to post.title || "", post_slug(post) %>&nbsp</h2>
     <h3><a href="#<%= post.id %>"><%= format_tumblr_date post.date %></a></h3>
   </hgroup>
   <%= raw post.body %>

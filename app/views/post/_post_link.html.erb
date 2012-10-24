@@ -1,3 +1,5 @@
+<% @title = post.title || title_from_slug(post) %>
+
 <article id="<%= post.id %>">
   <hgroup>
     <h2><%= link_to "Link: #{post.title}", post.url %></h2>

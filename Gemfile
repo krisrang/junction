@@ -23,7 +23,8 @@ gem 'httparty'
 gem 'octokit'
 gem 'foursquare2'
 gem 'rack-cache'
-gem 'turbo-sprockets-rails3'
+gem 'premailer-rails3'
+gem 'hpricot'
 gem 'mail_view'
 
 group :assets do

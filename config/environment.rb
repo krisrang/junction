@@ -16,7 +16,7 @@ if FileTest.exist?(".powenv")
     powenv.close
   rescue => _
   end
-end if Rails.env.development? || Rails.env.test?
+end
 
 # Load the rails application
 require File.expand_path('../application', __FILE__)

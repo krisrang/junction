@@ -2,11 +2,9 @@ source 'https://rubygems.org'
 ruby "1.9.3"
 
 gem 'rails', '~> 3.2.8'
-gem 'foreman'
 gem 'puma'
 
 # Persistence & caching
-gem 'mongoid'
 gem 'memcachier'
 gem 'dalli'
 
@@ -17,8 +15,6 @@ gem 'twitter-bootstrap-rails'
 # Misc frameworks, libs
 gem 'rails_config'
 gem 'airbrake'
-gem 'newrelic_rpm'
-gem 'newrelic_moped'
 gem 'oj'
 gem 'twitter'
 gem 'httparty'
@@ -54,7 +50,6 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
   gem 'factory_girl_rails'
-  gem 'mongoid-rspec'
 
   gem 'poltergeist'
   gem 'database_cleaner'

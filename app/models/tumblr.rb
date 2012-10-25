@@ -3,34 +3,32 @@ class Tumblr
   base_uri 'https://api.tumblr.com'
 
   def posts
-    fetch "posts"
+    fetch
   end
 
   def tag(tag)
     tag = CGI.escape tag
-    fetch "tag-#{tag}", "&tag=#{tag}"
+    fetch "&tag=#{tag}"
   end
 
   def post(id)
-    fetch id, "&id=#{id}"
+    fetch "&id=#{id}"
   end
 
   private 
 
-  def fetch(type, params=nil)
-    Rails.cache.fetch("tumblr-#{type}", expires_in: 10.minutes) do
-      r = query(params)
+  def fetch(params=nil)
+    r = query(params)
 
-      hash = r.response.code.to_s == "200" && r.parsed_response.is_a?(Hash) ?
-        r.parsed_response["response"] :
-        {posts: []}
+    hash = r.response.code.to_s == "200" && r.parsed_response.is_a?(Hash) ?
+      r.parsed_response["response"] :
+      {"posts" => []}
 
-      hash["posts"].map do |post|
-        Hashie::Mash.new(post).tap do |p|
-          p.date = Time.at(p.timestamp)
-          p.title = p.title.blank? ? nil : p.title
-        end
-      end      
+    hash["posts"].map do |post|
+      Hashie::Mash.new(post).tap do |p|
+        p.date = Time.at(p.timestamp)
+        p.title = p.title.blank? ? nil : p.title
+      end
     end
   end
 

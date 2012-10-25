@@ -1,5 +1,5 @@
 class ModalController < ApplicationController
-  #before_filter :set_expires
+  before_filter :set_expires
 
   def lastfm
     client = Lastfm.new

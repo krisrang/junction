@@ -7,4 +7,12 @@ module PostHelper
   def humanize_slug(slug)
     slug.humanize.gsub(/-/, ' ')
   end
+
+  def format_tumblr_date(date)
+    date.strftime('%B %d, %Y')
+  end
+
+  def post_slug(post)
+    [post_path(post.id), post.slug].join '/'
+  end
 end

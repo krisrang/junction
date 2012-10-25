@@ -8,23 +8,24 @@ class Tumblr
 
   def tag(tag)
     tag = CGI.escape tag
-    fetch "&tag=#{tag}"
+    fetch "tag=#{tag}"
   end
 
   def post(id)
-    fetch "&id=#{id}"
+    fetch "id=#{id}"
   end
 
-  private 
+  private
 
   def fetch(params=nil)
+    Rails.logger.info "Fetching fresh Tumblr result #{params}"
     r = query(params)
 
     hash = r.response.code.to_s == "200" && r.parsed_response.is_a?(Hash) ?
-      r.parsed_response["response"] :
-      {"posts" => []}
+        r.parsed_response["response"] :
+        {posts: []}
 
-    hash["posts"].map do |post|
+    (hash["posts"] || []).map do |post|
       Hashie::Mash.new(post).tap do |p|
         p.date = Time.at(p.timestamp)
         p.title = p.title.blank? ? nil : p.title
@@ -35,6 +36,7 @@ class Tumblr
   def query(params=nil)
     blog = Settings.tumblr.blog
     key = Settings.tumblr.key
+    params = params.blank? ? "" : "&#{params.to_s}"
     self.class.get("/v2/blog/#{blog}/posts?api_key=#{key}&offset=0#{params}")
   end
 end

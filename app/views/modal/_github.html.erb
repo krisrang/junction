@@ -1,0 +1,48 @@
+<div class="profile-info">
+  <button class="close" data-dismiss="modal">×</button>
+  <a href="http://github.com/<%= @user.login %>" class="profile-avatar">
+    <img src="http://gravatar.com/avatar/<%= @user.gravatar_id %>" alt="<%= @user.name %>" />
+  </a>
+  <div class="profile-name">
+    <h2><a href="http://github.com/<%= @user.login %>"><%= @user.name %></a></h2>
+    <h3><a href="http://github.com/<%= @user.login %>"><%= @user.login %></a></h3>
+  </div>
+   <p class="profile-location-url">
+    <% if @user.location %>
+      <span><%= @user.location %></span>
+      <span class="divider">·</span>
+    <% end %>
+    <% if @user.blog %>
+      <span><a href="<%= @user.blog %>"><%= @user.blog %></a></span>
+    <% end %>
+  </p>
+</div>
+<ul class="profile-stats">
+  <li><a href="http://github.com/<%= @user.login %>">
+    <strong><%= number_with_delimiter @user.public_repos %></strong> repos
+  </a></li>
+  <li><a href="http://github.com/<%= @user.login %>/following">
+    <strong><%= number_with_delimiter @user.following %></strong> following
+  </a></li>
+  <li><a href="http://github.com/<%= @user.login %>/followers">
+    <strong><%= @user.followers %></strong> followers
+  </a></li>
+</ul>
+<div class="profile-info-footer">
+  <a href="http://github.com/<%= @user.login %>" class="btn">Follow on Github</a>
+</div>
+<ul class="profile-repos">
+<% for repo in @repos %>
+  <li>
+  <a href="<%= repo.html_url %>" class="profile-repo-name"><%= repo.name %></a>
+  <p class="profile-repo-text">
+    <%= repo.description %>
+  </p>
+  <ul class="profile-repo-stats">
+    <li><%= repo.language %></li>
+    <li><a href="<%= repo.html_url %>/watchers" class="profile-watchers"><%= repo.watchers %></a></li>
+    <li><a href="<%= repo.html_url %>/network" class="profile-forks"><%= repo.forks %></a></li>
+  </ul>
+  </li>
+<% end %>
+</ul> 

@@ -6,6 +6,7 @@
 
 <% if Settings.disqus.enabled %>
 <script async>
+  var disqus_shortname = '<%= Settings.disqus.shortname %> %>';
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;

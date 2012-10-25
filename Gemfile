@@ -18,11 +18,13 @@ gem 'rails_config'
 gem 'airbrake'
 gem 'oj'
 gem 'twitter'
+gem 'twitter-text'
 gem 'httparty'
 gem 'octokit'
 gem 'foursquare2'
 gem 'rack-cache'
 gem 'turbo-sprockets-rails3'
+gem 'mail_view'
 
 group :assets do
   gem 'execjs'

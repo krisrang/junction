@@ -6,6 +6,7 @@
 
 <% if Settings.disqus.enabled %>
 <script async>
+  var disqus_shortname = '<%= Settings.disqus.shortname %> %>';
   var disqus_identifier = '<%= @post.id %> %>';
   <% if @title %>var disqus_title = '<%= @title %>';<% end %>
   var dsq = document.createElement('script');

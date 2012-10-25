@@ -5,7 +5,7 @@ if FileTest.exist?(".powenv")
     powenv = File.open(".powenv", "rb")
     contents = powenv.read
     # parse content and retrieve variables from file
-    lines = contents.gsub("export ", "").split(/\n\r?/).reject{|line| line.blank?}
+    lines = contents.gsub("export ", "").split(/\n\r?/).reject{|line| line.strip.empty?}
     lines.each do |line|
       key = line.split("=", 2)
       next unless key.count == 2
@@ -15,6 +15,7 @@ if FileTest.exist?(".powenv")
     # close file pointer
     powenv.close
   rescue => _
+    puts _
   end
 end
 

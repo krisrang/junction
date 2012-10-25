@@ -1,4 +1,4 @@
-class GithubSync
+class Github
   def initialize
     @client = Octokit::Client.new(login: Settings.github.username, oauth_token: Settings.github.key)
   end

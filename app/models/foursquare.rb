@@ -1,6 +1,4 @@
 class Foursquare < SyncClient
-  client_name 'foursquare'
-
   def initialize
     @client = Foursquare2::Client.new(oauth_token: Settings.foursquare.access_token)
   end

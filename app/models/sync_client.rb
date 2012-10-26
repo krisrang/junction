@@ -1,17 +1,6 @@
 class SyncClient
-  class_attribute :default_options
-  self.default_options = {
-    client_name: "Base"
-  }
-
-  class << self
-    def client_name(name)
-      self.default_options[:client_name] = name
-    end
-  end
-
   def client_name
-    self.default_options[:client_name]
+    self.class.to_s
   end
 
   private

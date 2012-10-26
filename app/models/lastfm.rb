@@ -1,7 +1,6 @@
 class Lastfm < SyncClient
   include HTTParty
   base_uri 'http://ws.audioscrobbler.com/2.0'
-  client_name 'lastfm'
 
   METHODS = {
     user: "user.getinfo",

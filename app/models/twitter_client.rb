@@ -1,6 +1,4 @@
 class TwitterClient < SyncClient
-  client_name 'twitter'
-
   def timeline
     cache
   end

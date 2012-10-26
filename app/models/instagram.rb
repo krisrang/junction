@@ -1,7 +1,6 @@
 class Instagram < SyncClient
   include HTTParty
   base_uri 'https://api.instagram.com/v1'
-  client_name 'instagram'
   
   PATHS = {
     user: "",

@@ -1,7 +1,6 @@
 class Tumblr < SyncClient
   include HTTParty
   base_uri 'https://api.tumblr.com'
-  client_name 'tumblr'
 
   def posts
     cache

@@ -1,0 +1,39 @@
+<div class="profile-info">
+  <button class="close" data-dismiss="modal">×</button>
+  <a href="https://foursquare.com/user/<%= @user.id %>" class="profile-avatar">
+    <img src="<%= @user.photo %>" alt="<%= @user.firstName %> <%= @user.lastName %>" />
+  </a>
+  <div class="profile-name">
+    <h2><a href="https://foursquare.com/user/<%= @user.id %>"><%= @user.firstName %> <%= @user.lastName %></a></h2>
+  </div>
+  <p class="profile-location-url">
+    <% if @user.homeCity %>
+    <span><%= @user.homeCity %></span>
+    <% end %>
+  </p>
+</div>
+<ul class="profile-stats">
+  <li><a href="https://foursquare.com/user/<%= @user.id %>"><strong><%= @user.checkins["count"] %></strong> check-ins</a></li>
+  <li><a href="https://foursquare.com/user/<%= @user.id %>/badges/all"><strong><%= @user.badges["count"] %></strong> badges</a></li>
+  <li><a href="https://foursquare.com/user/<%= @user.id %>/friends"><strong><%= @user.friends["count"] %></strong> friends</a></li>
+</ul>
+<div class="profile-info-footer">
+  <a href="https://foursquare.com/user/<%= @user.id %>" class="btn">Follow on Foursquare</a>
+</div>
+
+<ul class="profile-checkins">
+  <% for checkin in @checkins %>
+  <li>
+      <a href="<% if checkin.venue.url %><%= checkin.venue.url %><% end %>" class="checkin-title">
+        <img src="<%= foursquare_venue_image checkin.venue %>" alt="<%= checkin.venue.name %>" />
+        <strong><%= checkin.venue.name %></strong>
+        <span><%= checkin.venue.categories[0].shortname %></span>
+      </a>
+      <p class="checkin-location"><%= checkin.venue.location.city %>, <%= checkin.venue.location.state %></p>
+
+    <p class="checkin-date">
+      <%= foursquare_time checkin.createdAt %>
+    </p>
+  </li>
+  <% end %>
+</ul>

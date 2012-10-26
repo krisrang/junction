@@ -1,5 +1,7 @@
 #= require jquery
 #= require jquery_ujs
+#= require ./lib/jquery.url
+#= require ./lib/spin
 #= require twitter/bootstrap/bootstrap-modal
 #= require_self
 

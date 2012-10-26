@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag "mail", media: "all" %>
+</head>
+<body>
+
+<div class="container">
+  <h3>New message</h3>
+  <p>From: <%= @from %></p>
+  <div class="contents">
+    <%= raw @message %>
+  </div>
+</div>
+
+</body>
+</html>

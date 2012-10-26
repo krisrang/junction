@@ -1,0 +1,38 @@
+<div class="profile-info">
+  <button class="close" data-dismiss="modal">×</button>
+  <% if @user.image %>
+  <a href="<%= @user.url %>" class="profile-avatar">
+    <img src="<%= @user.image[1]["#text"] %>" alt="<%= @user.name %>" />
+  </a>
+  <% end %>
+  <div class="profile-name">
+    <h2><a href="<%= @user.url %>"><%= @user.realname %></a></h2>
+    <h3><a href="<%= @user.url %>"><%= @user.name %></a></h3>
+  </div>
+  <p class="profile-location-url">
+    <% if @user.country %><span>Country - <%= @user.country %></span><% end %>
+  </p>
+</div>
+<ul class="profile-stats">
+  <li><a href="<%= @user.url %>"><strong><%= number_with_delimiter @user.playcount %></strong> plays</a></li>
+  <li><a href="<%= @user.url %>/playlists"><strong><%= number_with_delimiter @user.playlists %></strong> playlists</a></li>
+  <li><a href="<%= @user.url %>"><strong><%= lastfm_date @user.registered %></strong> registered</a></li>
+</ul>
+<div class="profile-info-footer">
+  <a href="<%= @user.url %>" class="btn">View Last.fm Profile</a>
+</div>
+<ul class="profile-tracks">
+  <% for track in @tracks do %>
+    <li>
+      <a href="<%= track.url %>" class="track-image">
+        <img src="<%= track.image[0]["#text"] %>" alt="<%= track.artist["#text"] %> - <%= track.name %>" />
+      </a>
+      <p class="track-detail">
+        <a href="<%= track.url %>"><%= track.artist["#text"] %> - <%= track.name %></a>
+      </p>
+      <p class="track-date">
+        <%= lastfm_date track.date %>
+      </p>
+    </li>
+  <% end %>
+</ul>

@@ -2,7 +2,7 @@ module ModalHelper
   include Twitter::Autolink
 
   def lastfm_date(date)
-    date.strftime("%d/%m/%Y")
+    date.to_s :long_ordinal
   end
 
   def foursquare_time(time)

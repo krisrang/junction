@@ -31,11 +31,7 @@
         <a href="<%= track.url %>"><%= track.artist["#text"] %> - <%= track.name %></a>
       </p>
       <p class="track-date">
-        <% if track["@attr"] && track["@attr"].nowplaying %>
-          <strong>Now playing</strong>
-        <% else %>
-          <%= lastfm_date track.date if track.date %>
-        <% end %>
+        <%= lastfm_date track.date %>
       </p>
     </li>
   <% end %>

@@ -45,9 +45,6 @@ setupLinks = ->
     if e.which == 2
       return
 
-    e.preventDefault()
-    e.stopPropagation()
-
     if @href == $url
       return
 
@@ -56,20 +53,24 @@ setupLinks = ->
 
     if @id == 'home-link' && window.location.pathname == '/'
        adjustSelection('home')
+       linkSkip(e)
        return
 
     for component in allComponents
       if @id == component + '-link'
         adjustSelection(component)
+        linkSkip(e)
 
         if $('#' + component + '-profile').length > 0
           window.location = @href
         else
           createModal(component)
 
-        return
+    return
 
-    window.location = @href;
+linkSkip = (e) ->
+  e.preventDefault()
+  e.stopPropagation()
 
 createModal = (id) ->
   spinner = new Spinner(spin_opts).spin()

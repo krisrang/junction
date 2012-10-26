@@ -1,24 +1,26 @@
-class Tumblr
+class Tumblr < SyncClient
   include HTTParty
   base_uri 'https://api.tumblr.com'
+  client_name 'tumblr'
 
   def posts
-    fetch
+    cache
   end
 
   def tag(tag)
     tag = CGI.escape tag
-    fetch "tag=#{tag}"
+    cache "tag=#{tag}"
   end
 
   def post(id)
-    fetch "id=#{id}"
+    cache "id=#{id}"
   end
 
   private
 
   def fetch(params=nil)
-    Rails.logger.info "Fetching fresh Tumblr result #{params}"
+    fresh_fetch_log params
+    
     r = query(params)
 
     hash = r.response.code.to_s == "200" && r.parsed_response.is_a?(Hash) ?

@@ -1,18 +1,20 @@
 class ModalController < ApplicationController
-  before_filter :set_expires
+  layout false
 
   def lastfm
     client = Lastfm.new
     @user = client.user
     @tracks = client.tracks.track || []
-    render partial: 'lastfm'
+
+    fresh_when freshness_options(@tracks.max_by(&:date).date)
   end
 
   def github
     client = Github.new
     @user = client.user
-    @repos = client.repos
-    render partial: 'github'
+    @repos = client.repos.sort_by(&:pushed_at).reverse
+
+    fresh_when freshness_options(@repos.max_by(&:updated_at).updated_at)
   end
 
   # TODO: pagination
@@ -20,28 +22,31 @@ class ModalController < ApplicationController
     client = Instagram.new
     @user = client.user
     @media, @pagination = client.media
-    render partial: 'instagram'
+
+    fresh_when freshness_options(@media.max_by(&:date).date)
   end
 
   def twitter
-    @timeline = TwitterClient.timeline
+    @timeline = TwitterClient.new.timeline
     @user = @timeline.first.user if @timeline
-    render partial: 'twitter'
+
+    fresh_when freshness_options(@timeline.max_by(&:created_at).created_at)
   end
 
   def foursquare
     client = Foursquare.new
     @user = client.user
-    @checkins = client.checkins.items
-    render partial: 'foursquare'
+    @checkins = client.checkins
+
+    fresh_when freshness_options(@checkins.max_by(&:date).date)
   end
 
   def projects
-    render partial: 'projects'
+    set_expires
   end
 
   def contact
-    render partial: 'contact'
+    set_expires
   end
 
   # POST /message

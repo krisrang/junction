@@ -32,3 +32,4 @@ site:
 disqus:
   enabled: true
   shortname: kreumain
+cache_limit: 600 # 10 minutes

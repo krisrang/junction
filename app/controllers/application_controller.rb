@@ -4,4 +4,8 @@ class ApplicationController < ActionController::Base
   def set_expires
     expires_in 10.minutes, 'max-stale' => 1.hour, public: true
   end
+
+  def freshness_options(date)
+    {last_modified: date, public: true}
+  end
 end

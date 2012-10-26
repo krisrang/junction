@@ -1,6 +1,7 @@
-class Lastfm
+class Lastfm < SyncClient
   include HTTParty
   base_uri 'http://ws.audioscrobbler.com/2.0'
+  client_name 'lastfm'
 
   METHODS = {
     user: "user.getinfo",
@@ -8,17 +9,17 @@ class Lastfm
   }
   
   def tracks
-    fetch :tracks
+    cache :tracks
   end
 
   def user
-    fetch :user
+    cache :user
   end
 
   private
   
   def fetch(method=nil)
-    Rails.logger.info "Fetching fresh Lastfm result #{method}"
+    fresh_fetch_log method
 
     params = METHODS[method]
     r = query(params)
@@ -34,7 +35,7 @@ class Lastfm
     elsif method == :tracks
       Hashie::Mash.new(hash["recenttracks"]).tap do |tracks|
         (tracks.track || []).map do |track|
-          track.date = Time.at(track.date.uts.to_i) if track.date
+          track.date = track.date ? Time.at(track.date.uts.to_i) : Time.now
         end
       end
     end

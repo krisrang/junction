@@ -1,6 +1,7 @@
-class Instagram
+class Instagram < SyncClient
   include HTTParty
   base_uri 'https://api.instagram.com/v1'
+  client_name 'instagram'
   
   PATHS = {
     user: "",
@@ -8,17 +9,17 @@ class Instagram
   }
 
   def media
-    fetch :media
+    cache :media
   end
 
   def user
-    fetch :user
+    cache :user
   end
 
   private
 
   def fetch(method=nil)
-    Rails.logger.info "Fetching fresh Lastfm result #{method}"
+    fresh_fetch_log method
 
     path = PATHS[method]
     r = query(path)

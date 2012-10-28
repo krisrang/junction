@@ -15,6 +15,5 @@ class PostController < ApplicationController
   end
 
   def projects
-    set_expires
   end
 end

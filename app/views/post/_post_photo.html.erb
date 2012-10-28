@@ -5,7 +5,7 @@
     <h2><%= link_to "Photo", post_slug(post) %></h2>
     <h3><a href="#<%= post.id %>"><%= format_tumblr_date post.date %></a></h3>
   </hgroup>
-  <% post.photos.each do |photo| %>
+  <% post.images.each do |photo| %>
     <p><img src="<%= photo.original_size.url %>" /></p>
     <% if photo.caption %>
       <%= raw photo.caption %>

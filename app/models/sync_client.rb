@@ -6,9 +6,14 @@ class SyncClient
   private
 
   def cache(params=nil)
-    cache_key = params.blank? ? "" : params.to_s
-    Rails.cache.fetch("#{client_name}-#{params}", expires_in: Settings.cache_limit) do
-      fetch params
+    cache_key = params.blank? ? client_name : "#{client_name}-#{params.to_s}"
+
+    Rails.cache.fetch(cache_key, expires_in: Settings.cache_limit) do
+      begin
+        fetch params
+      rescue
+        nil
+      end
     end
   end
 

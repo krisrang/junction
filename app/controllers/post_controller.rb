@@ -1,20 +1,17 @@
 class PostController < ApplicationController
   def index
-    @posts = Tumblr.new.posts
-
-    fresh_when freshness_options(@posts.max_by(&:date).date)
+    @posts = Post.all.desc(:date)
   end
 
   def show
-    @post = Tumblr.new.post(params[:id]).first
+    @post = Post.find(params[:id])
 
-    fresh_when freshness_options(@post.date)
+    fresh_when last_modified: @post.updated_at.utc, etag: @post
   end
 
   def tag
-    @posts = Tumblr.new.tag(params[:tag])
-
-    render :index if stale? (@posts.max_by(&:date).date)
+    @posts = Post.where(tags: params[:tag]).all
+    render :index
   end
 
   def projects

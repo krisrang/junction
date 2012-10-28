@@ -1,30 +1,19 @@
-class Tumblr < SyncClient
+class Tumblr
   include HTTParty
   base_uri 'https://api.tumblr.com'
 
   def posts
-    cache
-  end
-
-  def tag(tag)
-    tag = CGI.escape tag
-    cache "tag=#{tag}"
-  end
-
-  def post(id)
-    cache "id=#{id}"
+    fetch
   end
 
   private
 
-  def fetch(params=nil)
-    fresh_fetch_log params
-    
-    r = query(params)
+  def fetch
+    r = query
 
-    hash = r.response.code.to_s == "200" && r.parsed_response.is_a?(Hash) ?
-        r.parsed_response["response"] :
-        {posts: []}
+    return false unless r.response.code.to_s == "200" && r.parsed_response.is_a?(Hash)
+
+    hash = r.parsed_response["response"]
 
     (hash["posts"] || []).map do |post|
       Hashie::Mash.new(post).tap do |p|
@@ -34,10 +23,9 @@ class Tumblr < SyncClient
     end
   end
 
-  def query(params=nil)
+  def query
     blog = Settings.tumblr.blog
     key = Settings.tumblr.key
-    params = params.blank? ? "" : "&#{params.to_s}"
-    self.class.get("/v2/blog/#{blog}/posts?api_key=#{key}&offset=0#{params}")
+    self.class.get("/v2/blog/#{blog}/posts?api_key=#{key}&offset=0")
   end
 end

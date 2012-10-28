@@ -8,6 +8,7 @@ gem 'puma'
 # Persistence & caching
 gem 'memcachier'
 gem 'dalli'
+gem 'mongoid'
 
 # Frontend
 gem 'jquery-rails'
@@ -54,6 +55,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
   gem 'factory_girl_rails'
+  gem 'mongoid-rspec'
 
   gem 'poltergeist'
   gem 'database_cleaner'

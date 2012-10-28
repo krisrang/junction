@@ -6,7 +6,7 @@
     <h3><a href="#<%= post.id %>"><%= format_tumblr_date post.date %></a></h3>
   </hgroup>
   <p>
-    <a href="<%= post.permalink_url %>" class="no-border"><img src="<%= post.thumbnail_url %>" /></a>
+    <%= raw post.player[2]["embed_code"] %>
   </p>
   <% if post.caption %>
     <%= raw post.caption %>

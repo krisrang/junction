@@ -29,7 +29,7 @@ class Post
   field :thumbnail_width,   type: Integer
   field :thumbnail_height,  type: Integer
   field :html5_capable,     type: Boolean
-  field :player,            type: String
+  field :player,            type: Hash
 
   index({ tags: 1 })
 

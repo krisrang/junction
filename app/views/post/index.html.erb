@@ -1,10 +1,10 @@
-<% cache @posts.to_a do %>
 <section class="main-section blog-section" id="blog-posts">
   <% @posts.each do |post| %>
-    <%= render "post_#{post.type}", post: post %>
+    <% cache post do %>
+      <%= render "post_#{post.type}", post: post %>
+    <% end %>
   <% end %>
 </section>
-<% end %>
 
 <% if Settings.disqus.enabled %>
 <script async>

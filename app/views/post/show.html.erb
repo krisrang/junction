@@ -1,6 +1,8 @@
+<% cache @post do %>
 <section class="main-section blog-section" id="blog-posts">
   <%= render "post_#{@post.type}", post: @post %>
 </section>
+<% end %>
 
 <% title @title %>
 

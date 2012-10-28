@@ -25,5 +25,18 @@ namespace :sync do
     client = Foursquare.new
     client.user
     client.checkins
+
+    client = Steam.new
+    client.user
+    client.games
+
+    puts "Warming up caches"
+    system "curl http://www.kristjanrang.eu &>/dev/null"
+    system "curl http://www.kristjanrang.eu/modal/lastfm &>/dev/null"
+    system "curl http://www.kristjanrang.eu/modal/github &>/dev/null"
+    system "curl http://www.kristjanrang.eu/modal/instagram &>/dev/null"
+    system "curl http://www.kristjanrang.eu/modal/twitter &>/dev/null"
+    system "curl http://www.kristjanrang.eu/modal/foursquare &>/dev/null"
+    system "curl http://www.kristjanrang.eu/modal/steam &>/dev/null"
   end
 end

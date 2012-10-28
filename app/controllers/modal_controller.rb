@@ -31,6 +31,12 @@ class ModalController < ApplicationController
     @checkins = client.checkins
   end
 
+  def steam
+    client = Steam.new
+    @user = client.user
+    @games = client.games
+  end
+
   def projects
   end
 

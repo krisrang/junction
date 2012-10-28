@@ -4,6 +4,7 @@ allComponents = [
   'github',
   'lastfm',
   'foursquare',
+  'steam',
   'contact',
   'projects'
 ]

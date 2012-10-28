@@ -1,0 +1,39 @@
+<div class="profile-info">
+  <button class="close" data-dismiss="modal">×</button>
+  <a href="<%= @user.url %>" class="profile-avatar">
+    <img src="<%= @user.avatarMedium %>" alt="<%= @user.steamID %>" />
+  </a>
+  <div class="profile-name">
+    <h2><a href="<%= @user.url %>"><%= @user.steamID %></a></h2>
+    <h3><a href="<%= @user.url %>"><%= @user.realname %></a></h3>
+  </div>
+  <p class="profile-location-url">
+    <% if @user.summary %><span><%= @user.summary %></span><% end %>
+  </p>
+</div>
+<ul class="profile-stats">
+  <li><a href="<%= @user.url %>" title="<%= @user.rating.time %> - <%= @user.rating.title %>"><strong><%= @user.rating.rating %></strong> Steam rating</a></li>
+  <li><a href="<%= @user.url %>games"><strong><%= @user.hoursPlayed2Wk %> hrs</strong> Played last 2 weeks</a></li>
+  <li><a href="<%= @user.url %>"><strong><%= @user.joined.strftime "%d/%m/%Y" %></strong> registered</a></li>
+</ul>
+<div class="profile-info-footer">
+  <a href="<%= @user.url %>" class="btn">View Steam Profile</a>
+</div>
+<ul class="profile-games">
+  <% for game in @games do %>
+    <li>
+      <a href="<%= game.link %>" class="game-image">
+        <img src="<%= game.logo %>" alt="<%= game.name %>" />
+      </a>
+      <p class="game-detail">
+        <a href="<%= game.link %>"><%= game.name %></a>
+      </p>
+      <p class="game-date">
+        <%= game.hoursOnRecord %> hrs played
+        <% if game.hoursLast2Weeks > 0 %>
+          / <%= game.hoursLast2Weeks %> hrs last two weeks
+        <% end %>
+      </p>
+    </li>
+  <% end %>
+</ul>

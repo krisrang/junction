@@ -24,6 +24,8 @@ instagram:
   access_id: <%= ENV['INSTAGRAM_ACCESS_ID'] %>
 foursquare:
   access_token: <%= ENV['FSQ_ACCESS_TOKEN'] %>
+steam:
+  key: <%= ENV['STEAM_KEY'] %>
 site:
   description: Personal site of Kristjan Rang. Development. Gaming. Stuff.
   title: Kristjan Rang

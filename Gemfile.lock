@@ -36,6 +36,7 @@ GEM
     asset_sync (0.5.0)
       activemodel
       fog
+    awesome_print (1.1.0)
     builder (3.0.4)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -319,6 +320,7 @@ PLATFORMS
 DEPENDENCIES
   airbrake
   asset_sync
+  awesome_print
   coffee-rails
   compass-rails
   cucumber-rails

@@ -25,7 +25,7 @@ class Instagram < SyncClient
 
     hash = r.response.code.to_s == "200" && r.parsed_response.is_a?(Hash) ?
         r.parsed_response :
-        {"date" => {}}
+        {"data" => {}}
 
     if method == :user
       Hashie::Mash.new(hash["data"]).tap do |user|

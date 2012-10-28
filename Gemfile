@@ -27,6 +27,7 @@ gem 'rack-cache'
 gem 'premailer-rails3'
 gem 'hpricot'
 gem 'mail_view'
+gem 'awesome_print'
 
 group :assets do
   gem 'execjs'

@@ -21,7 +21,7 @@ class Foursquare < SyncClient
       @client.user('self')
     when :checkins
       @client.user_checkins(limit: 10).items.map do |checkin|
-        checkin.date = Time.at(checkin.createdAt)
+        checkin.date = Time.at(checkin.createdAt).utc
         checkin
       end
     end

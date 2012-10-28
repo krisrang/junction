@@ -16,7 +16,7 @@
 <ul class="profile-stats">
   <li><a href="<%= @user.url %>"><strong><%= number_with_delimiter @user.playcount %></strong> plays</a></li>
   <li><a href="<%= @user.url %>/playlists"><strong><%= number_with_delimiter @user.playlists %></strong> playlists</a></li>
-  <li><a href="<%= @user.url %>"><strong><%= lastfm_date @user.registered %></strong> registered</a></li>
+  <li><a href="<%= @user.url %>"><strong><%= @user.registered.strftime "%d/%m/%Y" %></strong> registered</a></li>
 </ul>
 <div class="profile-info-footer">
   <a href="<%= @user.url %>" class="btn">View Last.fm Profile</a>
@@ -31,7 +31,7 @@
         <a href="<%= track.url %>"><%= track.artist["#text"] %> - <%= track.name %></a>
       </p>
       <p class="track-date">
-        <%= lastfm_date track.date %>
+        <%= time_ago_in_words track.date %> ago
       </p>
     </li>
   <% end %>

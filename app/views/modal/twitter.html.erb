@@ -39,7 +39,7 @@
         <%= raw twitter_linkify(tweet.text) %>
       </p>
       <p class="tweet-date">
-        <%= tweet.created_at.to_s :long_ordinal %> GMT+3
+        <%= time_ago_in_words tweet.created_at.utc %> ago
       </p>
     </li>
   <% end %>

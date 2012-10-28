@@ -34,7 +34,7 @@
     </span>
     <ul class="profile-shot-stats">
       <li><span class="profile-likes"><%= image.likes.count %></span></li>
-      <li class="profile-shot-date"><%= image.date.to_s :long_ordinal %></li>
+      <li class="profile-shot-date"><%= time_ago_in_words image.date %> ago</li>
     </ul>
   </li>
   <% end %>

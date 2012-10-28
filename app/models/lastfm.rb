@@ -34,7 +34,9 @@ class Lastfm < SyncClient
     elsif method == :tracks
       Hashie::Mash.new(hash["recenttracks"]).tap do |tracks|
         (tracks.track || []).map do |track|
-          track.date = track.date ? Time.at(track.date.uts.to_i) : Time.now
+          track.date = track.date ? 
+            Time.at(track.date.uts.to_i).utc : 
+            Time.now.utc
         end
       end
     end

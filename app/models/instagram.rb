@@ -35,7 +35,7 @@ class Instagram < SyncClient
       pagination = Hashie::Mash.new(hash["pagination"])
       media = (hash["data"] || []).map do |media|
         Hashie::Mash.new(media).tap do |image|
-          image.date = Time.at(image.created_time.to_i)
+          image.date = Time.at(image.created_time.to_i).utc
         end
       end
       [media, pagination]

@@ -32,7 +32,7 @@
       <p class="checkin-location"><%= checkin.venue.location.city %>, <%= checkin.venue.location.state %></p>
 
     <p class="checkin-date">
-      <%= foursquare_time checkin.createdAt %>
+      <%= time_ago_in_words checkin.date %> ago
     </p>
   </li>
   <% end %>

@@ -61,10 +61,5 @@ Junction::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_dispatch.rack_cache = {
-                          :metastore    => Dalli::Client.new,
-                          :entitystore  => 'file:tmp/cache/rack/body',
-                          :allow_reload => false }
-
   config.static_cache_control = "public, max-age=2592000" 
 end

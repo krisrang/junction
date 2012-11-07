@@ -1,5 +1,5 @@
 assethost:
-  production: //junction-assets.s3.amazonaws.com
+  production: //assets.www.kristjanrang.eu
 tumblr:
   blog: kriszor.tumblr.com
   key: <%= ENV['TUMBLR'] %>

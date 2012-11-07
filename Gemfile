@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby "1.9.3"
 
 gem 'rails', '~> 3.2.8'
+gem 'capistrano'
 gem 'foreman'
 gem 'puma'
 
@@ -9,10 +10,6 @@ gem 'puma'
 gem 'memcachier'
 gem 'dalli'
 gem 'mongoid'
-
-# Frontend
-gem 'jquery-rails'
-gem 'twitter-bootstrap-rails'
 
 # Misc frameworks, libs
 gem 'rails_config'
@@ -23,11 +20,12 @@ gem 'twitter-text'
 gem 'httparty'
 gem 'octokit'
 gem 'foursquare2'
-gem 'rack-cache'
+gem 'awesome_print'
+
+# Mailer
 gem 'premailer-rails3'
 gem 'hpricot'
 gem 'mail_view'
-gem 'awesome_print'
 
 group :assets do
   gem 'execjs'
@@ -37,8 +35,11 @@ group :assets do
   gem 'uglifier'
   gem 'compass-rails'
   gem 'oily_png'
-  gem 'asset_sync'
+  # gem 'asset_sync'
   gem 'js-routes'
+  gem 'jquery-rails'
+  gem 'twitter-bootstrap-rails'
+  gem 'less-rails'
 end
 
 group :development do

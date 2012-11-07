@@ -20,13 +20,13 @@ gem 'twitter-text'
 gem 'httparty'
 gem 'octokit'
 gem 'foursquare2'
-gem 'awesome_print'
 gem 'whenever', require: false
 
 # Mailer
 gem 'premailer-rails3'
 gem 'hpricot'
 gem 'mail_view'
+gem 'action_mailer_cache_delivery'
 
 group :assets do
   gem 'execjs'
@@ -39,8 +39,7 @@ group :assets do
   # gem 'asset_sync'
   gem 'js-routes'
   gem 'jquery-rails'
-  gem 'twitter-bootstrap-rails'
-  gem 'less-rails'
+  gem 'turbo-sprockets-rails3'
 end
 
 group :development do

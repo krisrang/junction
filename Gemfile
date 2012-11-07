@@ -11,6 +11,9 @@ gem 'memcachier'
 gem 'dalli'
 gem 'mongoid'
 
+# Frontend
+gem 'twitter-bootstrap-rails'
+
 # Misc frameworks, libs
 gem 'rails_config'
 gem 'airbrake'

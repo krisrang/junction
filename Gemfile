@@ -21,6 +21,7 @@ gem 'httparty'
 gem 'octokit'
 gem 'foursquare2'
 gem 'awesome_print'
+gem 'whenever', require: false
 
 # Mailer
 gem 'premailer-rails3'

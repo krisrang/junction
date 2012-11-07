@@ -20,6 +20,9 @@ role :db, domain, primary: true
 set :deploy_to, applicationdir
 set :deploy_via, :remote_cache
 
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
+
 # set :shared_children, shared_children + %w{public/avatars}
 
 default_run_options[:pty] = true

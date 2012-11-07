@@ -42,6 +42,7 @@ group :assets do
   # gem 'asset_sync'
   gem 'js-routes'
   gem 'jquery-rails'
+  gem 'less-rails'
   gem 'turbo-sprockets-rails3'
 end
 

@@ -167,7 +167,7 @@ GEM
     mail_view (1.0.3)
       tilt
     memcachier (0.0.1)
-    meow-deploy (0.0.3)
+    meow-deploy (0.0.4)
       capistrano
     method_source (0.8.1)
     mime-types (1.19)

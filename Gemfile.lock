@@ -166,6 +166,8 @@ GEM
     mail_view (1.0.3)
       tilt
     memcachier (0.0.1)
+    meow-deploy (0.0.1)
+      capistrano
     method_source (0.8.1)
     mime-types (1.19)
     mongoid (3.0.11)
@@ -344,6 +346,7 @@ DEPENDENCIES
   less-rails
   mail_view
   memcachier
+  meow-deploy
   mongoid
   mongoid-rspec
   octokit

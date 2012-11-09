@@ -48,6 +48,7 @@ end
 
 group :development do
   gem 'terminal-notifier-guard'
+  gem 'meow-deploy', require: false
 end
 
 group :test do

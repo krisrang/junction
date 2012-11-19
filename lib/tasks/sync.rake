@@ -4,40 +4,14 @@ namespace :sync do
     puts "Updating posts"
     Post.sync
 
-    puts "Clearing cache"
-    Rails.cache.clear
+    puts "Syncing 3rd party data"
+    Lastfm.new.sync
+    Github.new.sync
+    Instagram.new.sync
+    TwitterClient.new.sync
+    Foursquare.new.sync
+    Steam.new.sync
 
-    puts "Prefetching 3rd party data"
-    client = Lastfm.new
-    client.user
-    client.tracks
-
-    client = Github.new
-    client.user
-    client.repos
-
-    client = Instagram.new
-    client.user
-    client.media
-
-    TwitterClient.new.timeline
-
-    client = Foursquare.new
-    client.user
-    client.checkins
-
-    client = Steam.new
-    client.user
-    client.games
-
-    puts "Warming up caches"
-    system "curl -f http://www.kristjanrang.eu &>/dev/null"
-    system "curl -f http://www.kristjanrang.eu/modal/lastfm &>/dev/null"
-    system "curl -f http://www.kristjanrang.eu/modal/github &>/dev/null"
-    system "curl -f http://www.kristjanrang.eu/modal/instagram &>/dev/null"
-    system "curl -f http://www.kristjanrang.eu/modal/twitter &>/dev/null"
-    system "curl -f http://www.kristjanrang.eu/modal/foursquare &>/dev/null"
-    system "curl -f http://www.kristjanrang.eu/modal/steam &>/dev/null"
-    puts nil # no output
+    puts "Done"
   end
 end

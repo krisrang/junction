@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "1.9.3"
 
-gem 'rails', '~> 3.2.8'
+gem 'rails', '~> 3.2.9'
 gem 'capistrano'
 gem 'foreman'
 gem 'puma'
@@ -47,6 +47,7 @@ group :assets do
 end
 
 group :development do
+  gem 'pry'
   gem 'terminal-notifier-guard'
   gem 'meow-deploy', require: false
 end

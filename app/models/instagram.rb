@@ -8,11 +8,25 @@ class Instagram < SyncClient
   }
 
   def media
-    cache :media
+    cache_get :media
   end
 
   def user
-    cache :user
+    cache_get :user
+  end
+
+  def sync
+    cache_update :user
+    cache_update :media
+  end
+
+  def valid?(result, params)
+    case params
+    when :user
+      result.is_a?(Hashie::Mash) && result.has_key?("type") && result.type.downcase == "user"
+    when :media
+      result.is_a?(Array) && result[0].is_a?(Hashie::Mash) && result[0].has_key?("url")
+    end
   end
 
   private

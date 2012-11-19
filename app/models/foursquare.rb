@@ -4,18 +4,30 @@ class Foursquare < SyncClient
   end
   
   def user
-    cache :user
+    cache_get :user
   end
 
   def checkins
-    cache :checkins
+    cache_get :checkins
+  end
+
+  def sync
+    cache_update :user
+    cache_update :checkins
+  end
+
+  def valid?(result, params)
+    case params
+    when :user
+      result.is_a?(Hashie::Mash) && result.has_key?("id")
+    when :checkins
+      result.is_a?(Array) && result[0].is_a?(Hashie::Mash) && result[0].has_key?("id")
+    end
   end
 
   private
 
   def fetch(params=nil)
-    fresh_fetch_log params
-    
     case params
     when :user
       @client.user('self')

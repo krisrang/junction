@@ -4,18 +4,30 @@ class Github < SyncClient
   end
 
   def user
-    cache :user
+    cache_get :user
   end
 
   def repos
-    cache :repos
+    cache_get :repos
   end
 
-   private
+  def sync
+    cache_update :user
+    cache_update :repos
+  end
+
+  def valid?(result, params)
+    case params
+    when :user
+      result.is_a?(Hashie::Mash) && result.has_key?("type") && result.type.downcase == "user"
+    when :repos
+      result.is_a?(Array) && result[0].is_a?(Hashie::Mash) && result[0].has_key?("url")
+    end
+  end
+
+  private
 
   def fetch(params=nil)
-    fresh_fetch_log params
-    
     case params
     when :user
       @client.user

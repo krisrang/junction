@@ -15,6 +15,11 @@ class Steam < SyncClient
     cache :games
   end
 
+  def valid?(result)
+    puts result
+    result.is_a?(Array) && result[0].is_a?(Hashie::Mash)
+  end
+
   private
 
   def ratingParse(rating)

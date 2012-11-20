@@ -8,16 +8,25 @@ class Steam < SyncClient
   }
 
   def user
-    cache :user
+    cache_get :user
   end
 
   def games
-    cache :games
+    cache_get :games
   end
 
-  def valid?(result)
-    puts result
-    result.is_a?(Array) && result[0].is_a?(Hashie::Mash)
+  def sync
+    cache_update :user
+    cache_update :games
+  end
+
+  def valid?(result, params)
+    case params
+    when :user
+      result.is_a?(Hashie::Mash) && result.has_key?("steamID")
+    when :games
+      result.is_a?(Array) && result[0].is_a?(Hashie::Mash) && result[0].has_key?("appID")
+    end
   end
 
   private
@@ -63,8 +72,6 @@ class Steam < SyncClient
   end
 
   def fetch(method=nil)
-    fresh_fetch_log method
-
     path = METHODS[method]
     r = query path
 

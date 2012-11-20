@@ -3,7 +3,7 @@ require 'bundler/capistrano'
 require 'meow-deploy'
 
 set :application,         'junction'
-set :repository,          'git@github.com:krisrang/junction.git'
+set :repository,          'ssh://git@git.kristjanrang.eu:24365/junction.git'
 set :domain,              'meow.kristjanrang.eu'
 set :applicationdir,      '/home/deploy/sites/junction'
 set :user,                'deploy'

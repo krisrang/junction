@@ -8,18 +8,30 @@ class Lastfm < SyncClient
   }
   
   def tracks
-    cache :tracks
+    cache_get :tracks
   end
 
   def user
-    cache :user
+    cache_get :user
+  end
+
+  def sync
+    cache_update :user
+    cache_update :tracks
+  end
+
+  def valid?(result, params)
+    case params
+    when :user
+      result.is_a?(Hashie::Mash) && result.has_key?("type") && result.type.downcase == "user"
+    when :tracks
+      result.is_a?(Hashie::Mash) && result.has_key?("track")
+    end
   end
 
   private
   
   def fetch(method=nil)
-    fresh_fetch_log method
-
     params = METHODS[method]
     r = query(params)
 

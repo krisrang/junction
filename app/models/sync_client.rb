@@ -22,10 +22,10 @@ class SyncClient
 
     response = fetch(params) rescue nil
 
-    if valid?(response, params) && Rails.cache.write(cache_key(params), response)
-      response
+    if valid?(response, params)
+      Rails.cache.write(cache_key(params), response)
     else
-      cache_get(params)
+      fresh_fetch_failed_log params
     end
   end
 
@@ -38,6 +38,10 @@ class SyncClient
   end
 
   def fresh_fetch_log(params=nil)
-    Rails.logger.info "Fetching fresh #{client_name} result #{params}"
+    Rails.logger.info "Fetching fresh #{client_name} result for #{params}"
+  end
+
+  def fresh_fetch_failed_log(params=nil)
+    Rails.logger.warn "Fetching fresh #{client_name} result failed for #{params}, keeping old cache"
   end
 end

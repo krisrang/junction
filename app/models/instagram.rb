@@ -23,17 +23,16 @@ class Instagram < SyncClient
   def valid?(result, params)
     case params
     when :user
-      result.is_a?(Hashie::Mash) && result.has_key?("type") && result.type.downcase == "user"
+      result.is_a?(Hashie::Mash) && result.has_key?("username")
     when :media
-      result.is_a?(Array) && result[0].is_a?(Hashie::Mash) && result[0].has_key?("url")
+      result.is_a?(Array) && result[0].is_a?(Array) && 
+      result[0][0].is_a?(Hashie::Mash) && result[0][0].has_key?("location")
     end
   end
 
   private
 
   def fetch(method=nil)
-    fresh_fetch_log method
-
     path = PATHS[method]
     r = query(path)
 

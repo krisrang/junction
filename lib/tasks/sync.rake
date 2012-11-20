@@ -12,6 +12,12 @@ namespace :sync do
     Foursquare.new.sync
     Steam.new.sync
 
+    puts "Clearing modal caches"
+    ["lastfm", "github", "instagram", 
+      "twitter", "foursquare", "steam"].each do |modal| 
+      Rails.cache.delete "views/modal-#{modal}"
+    end
+    
     puts "Done"
   end
 end

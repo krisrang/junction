@@ -94,10 +94,12 @@ class Steam < SyncClient
         end
       end
 
-      recent = games.select { |g| g.hoursLast2Weeks > 0.0 }
-      old = games.select { |g| g.hoursLast2Weeks == 0 }
+      sorted = games.sort do |a,b|
+        comp = (a.hoursLast2Weeks <=> b.hoursLast2Weeks)
+        comp.zero? ? (a.hoursOnRecord <=> b.hoursOnRecord) : comp
+      end
 
-      recent.sort_by(&:hoursOnRecord).reverse.concat old.sort_by(&:hoursOnRecord).reverse
+      sorted.reverse
     end
   end
 

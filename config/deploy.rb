@@ -31,5 +31,12 @@ set :default_environment, {
   "/home/#{user}/.rbenv/shims:/home/#{user}/.rbenv/bin:$PATH"
 }
 
+namespace :sync do
+  desc "Update 3rd party syncs"
+  task :update do
+    run "cd #{current_path}; bundle exec rake sync:update RAILS_ENV=production"
+  end
+end
+
 after 'deploy:create_symlink', 'secrets:upload', 'secrets:symlink'
-after 'deploy:restart', 'god:reload', 'god:restart'
+after 'deploy:restart', 'god:reload', 'god:restart', 'sync:update'

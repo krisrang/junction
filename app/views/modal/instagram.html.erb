@@ -19,6 +19,9 @@
   <li><span><strong><%= @user.counts.follows %></strong> following</span></li>
   <li><span><strong><%= @user.counts.followed_by %></strong> followers</span></li>
 </ul>
+<div class="profile-info-footer">
+  <a href="http://instagram.com/<%= @user.username %>" class="btn">View on Instagram</a>
+</div>
 
 <ul class="profile-shots">
   <% for image in @media %>

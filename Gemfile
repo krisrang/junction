@@ -5,7 +5,7 @@ gem 'rails', '~> 3.2.9'
 gem 'capistrano'
 gem 'foreman'
 gem 'puma'
-gem 'meow_logger'
+gem 'meow-logger'
 
 # Persistence & caching
 gem 'memcachier'

@@ -35,6 +35,7 @@ gem 'action_mailer_cache_delivery'
 group :assets do
   gem 'execjs'
   gem 'therubyracer'
+  gem 'libv8', '~> 3.11.8'
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'

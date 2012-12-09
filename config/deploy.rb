@@ -3,8 +3,8 @@ require 'bundler/capistrano'
 require 'meow-deploy'
 
 set :application,         'junction'
-set :repository,          'ssh://git@git.kristjanrang.eu:24365/junction.git'
-set :domain,              'meow.kristjanrang.eu'
+set :repository,          'git@git.kristjanrang.eu:root/junction.git'
+set :domain,              'purr.kristjanrang.eu'
 set :applicationdir,      '/home/deploy/sites/junction'
 set :user,                'deploy'
 set :use_sudo,            false
@@ -24,7 +24,6 @@ require "whenever/capistrano"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-ssh_options[:port] = 24365
 
 set :default_environment, {
   'PATH' => 

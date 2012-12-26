@@ -37,5 +37,5 @@ namespace :sync do
   end
 end
 
-after 'deploy:create_symlink', 'secrets:upload', 'secrets:symlink'
-after 'deploy:restart', 'god:reload', 'god:restart', 'sync:update'
+after 'deploy:finalize_update', 'secrets:upload', 'secrets:symlink'
+after 'deploy:restart', 'god:restart', 'sync:update'

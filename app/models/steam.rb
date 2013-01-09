@@ -104,6 +104,6 @@ class Steam < SyncClient
   end
 
   def query(method)
-    self.class.get("/id/pouncepocalypse/#{method}?xml=1")
+    self.class.get("/id/#{Settings.steam.user}/#{method}?xml=1")
   end
 end
